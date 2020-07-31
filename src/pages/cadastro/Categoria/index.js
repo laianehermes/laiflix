@@ -31,18 +31,20 @@ function CadastroCategoria() {
   // ============
 
   useEffect(() => {
+    const URL = 'http://localhost:8080/categorias'; 
+
     if(window.location.href.includes('localhost')) {
       const URL = 'http://localhost:8080/categorias'; 
-      fetch(URL)
-       .then(async (respostaDoServer) =>{
-        if(respostaDoServer.ok) {
-          const resposta = await respostaDoServer.json();
-          setCategorias(resposta);
-          return; 
-        }
-        throw new Error('Não foi possível pegar os dados');
-       })
     }    
+    fetch(URL)
+     .then(async (respostaDoServer) =>{
+      if(respostaDoServer.ok) {
+        const resposta = await respostaDoServer.json();
+        setCategorias(resposta);
+        return; 
+      }
+      throw new Error('Não foi possível pegar os dados');
+     })
   }, []);
 
   return (
