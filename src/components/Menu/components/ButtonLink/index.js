@@ -1,9 +1,10 @@
 import React from 'react';
 
 function ButtonLink(props) {
+  // props => { className: "o que alguém passar", href: "/" }
   return (
-    <a className={props.className} href={props.logo}>
-        {props.children}
+    <a href={props.href} className={props.className}>
+      {props.children}
     </a>
   );
 }
